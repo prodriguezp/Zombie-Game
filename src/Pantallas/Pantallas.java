@@ -4,7 +4,11 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
 import Principal.PanelJuego;
-
+/**
+ * Interfaz pantalla 
+ * @author Pedro Luis
+ *
+ */
 public interface Pantallas{
 	
 	

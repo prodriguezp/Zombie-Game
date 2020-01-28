@@ -16,12 +16,21 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.spi.AudioFileReader;
 
 import Principal.PanelJuego;
-
+/**
+ * Pantalla  Intermedia que muestra el nivel que vas a jugar
+ * @author Pedro Luis
+ *
+ */
 public class PantallaIntermedia implements Pantallas{
+	/** PANEL DE JUEGO **/
 	PanelJuego panel;
 	
+	
+	/** IMAGENES **/
 	BufferedImage fondo;
 	Image fondoResize;
+	
+	/** MISCELANEA**/
 	Font titulo;
 
 	
@@ -40,12 +49,18 @@ public class PantallaIntermedia implements Pantallas{
 		}
 	}
 
+	/**
+	 * Establece el panel en el que vamos a pintar
+	 */
 	@Override
 	public void inicializarPantalla(PanelJuego panel) {
 		this.panel = panel;
 		
 	}
 
+	/**
+	 * Metodo que pinta en el panel de juego cada cierto tiempo
+	 */
 	@Override
 	public void pintarPantalla(Graphics g) {
 		g.drawImage(fondoResize,0,0,null);
@@ -54,6 +69,9 @@ public class PantallaIntermedia implements Pantallas{
 		g.drawString("NIVEL "+PantallaJuego.nivelActual, panel.getWidth()/2-150, panel.getHeight()/2);
 	}
 
+	/**
+	 * Inicia la pantalla con un sonido y a los 4000ms cambia de pantalla
+	 */
 	@Override
 	public void ejecutarFrame() {
 		try {
@@ -83,7 +101,10 @@ public class PantallaIntermedia implements Pantallas{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	/**
+	 * Reescala la imagen
+	 */
 	@Override
 	public void redimensionar() {
 		fondoResize = fondo.getScaledInstance(panel.getWidth(), panel.getHeight(), Image.SCALE_SMOOTH);

@@ -14,15 +14,23 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 import Principal.PanelJuego;
-
+/**
+ * Pantalla Inicio que unicamente sirve para introducir al juego.
+ * @author Pedro Luis
+ *
+ */
 public class PantallaInicio implements Pantallas{
 	/**PINICIAL COLOR **/
 	Color colorLetraInicio = Color.RED;
 	
+	/** PANEL DE JUEGO **/
 	PanelJuego panelJuego;
+	
+	/** IMAGENES **/
 	BufferedImage fondo;
 	Image redimensionada;
 	
+	/** MISCELANEA **/
 	Font titulo;
 	Clip sonido;
 	
@@ -37,7 +45,7 @@ public class PantallaInicio implements Pantallas{
 			
 			
 			sonido = AudioSystem.getClip();
-			sonido.open(AudioSystem.getAudioInputStream(new File("Sonidos/musicaInicio.wav")));
+			sonido.open(AudioSystem.getAudioInputStream(new File("Sonidos/musicaInicio.wav")));			
 			sonido.start();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -45,12 +53,17 @@ public class PantallaInicio implements Pantallas{
 	}
 	
 	@Override
+	/**
+	 * Establece el panel en el que vamos a pintar
+	 */
 	public void inicializarPantalla(PanelJuego panel) {
 		this.panelJuego = panel;
 		
 	}
-
-	@Override
+	/**
+	 * Metodo que pinta en el panel de juego cada cierto tiempo
+	 */
+	@Override	
 	public void pintarPantalla(Graphics g) {
 		g.drawImage(redimensionada, 0, 0, null);
 		g.setColor(colorLetraInicio);
@@ -58,7 +71,9 @@ public class PantallaInicio implements Pantallas{
 		g.drawString("WELCOME TO ZOMBIE GAME", panelJuego.getWidth() / 2 - 260, panelJuego.getHeight() / 2 - 200);
 		
 	}
-
+	/**
+	 * Metodo que cada 100ms cambia el color de las letras
+	 */
 	@Override
 	public void ejecutarFrame() {
 		try {
@@ -69,19 +84,23 @@ public class PantallaInicio implements Pantallas{
 		colorLetraInicio = colorLetraInicio == Color.RED ? Color.GRAY : Color.RED;
 		
 	}
-
+	/**
+	 * Para la musica, y cambia de pantalla
+	 */
 	@Override
 	public void pulsarRaton(MouseEvent event) {
 		sonido.stop();
 		panelJuego.setPantallaEjecuccion(new PantallaIntermedia(panelJuego));	
 	}
-
+	
 	@Override
 	public void mover(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * Redimensiona la imagen
+	 */
 	@Override
 	public void redimensionar() {
 		redimensionada = fondo.getScaledInstance(panelJuego.getWidth(),panelJuego.getHeight(), Image.SCALE_FAST);

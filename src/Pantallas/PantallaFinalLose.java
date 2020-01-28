@@ -12,9 +12,13 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import Principal.PanelJuego;
-
+/**
+ * Pantalla Final Game Over. Muestra un mensaje de que has perdido todas las vidas
+ * @author Pedro Luis
+ *
+ */
 public class PantallaFinalLose implements Pantallas{
-	
+	/** PANEL DE JUEGO**/
 	PanelJuego panelJuego;
 	
 
@@ -37,11 +41,17 @@ public class PantallaFinalLose implements Pantallas{
 		redimensionar();
 	}
 
+	/**
+	 * Establece el panel en el que vamos a pintar
+	 */
 	@Override
 	public void inicializarPantalla(PanelJuego panel) {
 		this.panelJuego=panel;		
 	}
 
+	/**
+	 * Metodo que pinta en el panel de juego cada cierto tiempo
+	 */
 	@Override
 	public void pintarPantalla(Graphics g) {
 		rellenarFondo(g);	
@@ -56,6 +66,9 @@ public class PantallaFinalLose implements Pantallas{
 		
 	}
 
+	/**
+	 * Al pulsar el raton , nos redirige a otra pantalla
+	 */
 	@Override
 	public void pulsarRaton(MouseEvent event) {
 		panelJuego.setPantallaEjecuccion(new PantallaInicio(panelJuego));
@@ -68,12 +81,19 @@ public class PantallaFinalLose implements Pantallas{
 		
 	}
 
-	@Override
+	/**
+	 * Escala la imagen
+	 */
+	@Override	
 	public void redimensionar() {
 		fondoEscalado = fondo.getScaledInstance(panelJuego.getWidth(), panelJuego.getHeight(), BufferedImage.SCALE_SMOOTH);
 		
 	}
 	
+	/**
+	 * Pinta el fondo reescalado
+	 * @param g
+	 */
 	private void rellenarFondo(Graphics g) {
 		g.drawImage(fondoEscalado, 0, 0, null);
 	}
