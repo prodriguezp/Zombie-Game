@@ -45,7 +45,7 @@ public class PanelJuego extends JPanel implements Runnable {
 		addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentResized(ComponentEvent e) {
-				pantallaEjecuccion.redimensionar();
+				//pantallaEjecuccion.redimensionar();
 			}
 		});
 

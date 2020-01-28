@@ -29,7 +29,7 @@ public class PantallaInicio implements Pantallas{
 	public PantallaInicio(PanelJuego panel) {
 		inicializarPantalla(panel);
 		try {
-			fondo = ImageIO.read(new File("Imagenes/fondoPrincipal.jpg"));
+			fondo = ImageIO.read(new File(("Imagenes/fondoPrincipal.jpg")));
 			redimensionada = fondo.getScaledInstance(1420, 838, Image.SCALE_FAST);
 			titulo = Font.createFont(Font.TRUETYPE_FONT, new File("Font/ZOMBIE.TTF"));
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();					
@@ -55,7 +55,7 @@ public class PantallaInicio implements Pantallas{
 		g.drawImage(redimensionada, 0, 0, null);
 		g.setColor(colorLetraInicio);
 		g.setFont(new Font("ZombieA",Font.BOLD,40));
-		g.drawString("WELCOME TO ZOMBIE CITY", panelJuego.getWidth() / 2 - 260, panelJuego.getHeight() / 2 - 200);
+		g.drawString("WELCOME TO ZOMBIE GAME", panelJuego.getWidth() / 2 - 260, panelJuego.getHeight() / 2 - 200);
 		
 	}
 

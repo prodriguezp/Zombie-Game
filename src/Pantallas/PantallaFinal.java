@@ -45,8 +45,8 @@ public class PantallaFinal implements Pantallas{
 	public void pintarPantalla(Graphics g) {
 		rellenarFondo(g);	
 		g.setColor(Color.yellow);
-		g.setFont(new Font("",Font.BOLD,50));
-		g.drawString("Victoria!!", panelJuego.getWidth()-500, panelJuego.getHeight()-100);
+		g.setFont(new Font("",Font.BOLD,40));
+		g.drawString("Lograstes escapar!!!", 100, panelJuego.getHeight()-100);
 	}
 
 	@Override

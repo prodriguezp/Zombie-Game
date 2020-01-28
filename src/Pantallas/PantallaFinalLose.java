@@ -45,9 +45,9 @@ public class PantallaFinalLose implements Pantallas{
 	@Override
 	public void pintarPantalla(Graphics g) {
 		rellenarFondo(g);	
-		g.setColor(Color.yellow);
-		g.setFont(new Font("",Font.BOLD,50));
-		g.drawString("Pulsa para volver al inicio", panelJuego.getWidth()-500, panelJuego.getHeight()-100);
+		g.setColor(Color.GRAY);
+		g.setFont(new Font("",Font.BOLD,40));
+		g.drawString("Pulsa para volver al inicio", 100, panelJuego.getHeight()-100);
 	}
 
 	@Override
