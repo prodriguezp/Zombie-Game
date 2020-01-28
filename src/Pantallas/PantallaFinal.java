@@ -57,7 +57,7 @@ public class PantallaFinal implements Pantallas{
 
 	@Override
 	public void pulsarRaton(MouseEvent event) {
-		// TODO Auto-generated method stub
+		panelJuego.setPantallaEjecuccion(new PantallaInicio(panelJuego));
 		
 	}
 
